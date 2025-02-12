@@ -49,13 +49,31 @@
   <!-- Link to your CSS file -->
 
 
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("SgAkNrNYEAis-NJvv");
+    })();
+  </script>
 
 
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
+    #alertMessage {
+      margin-top: 3rem;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #2BA6DC;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000;
+    }
 
     header {
       background-color: #fff;
@@ -93,7 +111,7 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
+      z-index: 100000;
       transition: padding 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -1901,6 +1919,9 @@ Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)`
       <a href="/pages/contactus.html" class="navbar-link">Contact Us</a>
     </div>
   </nav>
+  <div id="alertMessage" class="alert alert-primary" role="alert" style="display: none;">
+
+  </div>
   <div class="home">
     <div class="scroll-container">
       <div class="scroll-item">
@@ -2130,23 +2151,6 @@ Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)`
       </div>
     </div>
   </section>
-  <div id="alertMessage" class="alert alert-primary" role="alert" style="display: none;">
-    A simple primary alert—check it out!
-  </div>
-
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent actual form submission
-
-      // Show alert
-      document.getElementById("alertMessage").style.display = "block";
-
-      // Optionally, hide the alert after 3 seconds
-      setTimeout(() => {
-        document.getElementById("alertMessage").style.display = "none";
-      }, 3000);
-    });
-  </script>
 
 
   <div class="form-container">
@@ -2167,13 +2171,16 @@ Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)`
       </div>
 
       <div class="form-group">
-        <select class="custom-select form-control" required>
+        <select id="project" class="custom-select form-control" required>
           <option value="" disabled selected>Project Interested</option>
-          <option value="project 1">Fortune Galaxy</option>
-          <option value="p2">Fortune Orchid</option>
-          <option value="p3">Fortune Hillside</option>
-          <option value="p4">Fortune Highway-2</option>
-          <option value="p5">Fortune Highway</option>
+          <option value="Fortune Galaxy">Fortune Galaxy</option>
+          <option value="Fortune Orchid">Fortune Orchid</option>
+          <option value="Fortune Hillside">Fortune Hillside</option>
+          <option value="Fortune Highway">Fortune Highway</option>
+          <option value="Fortune Highway 2">Fortune Highway-2</option>
+          <option value="Fortune Center">Fortune Center</option>
+          <option value="Fortune Lotus">Fortune Lotus</option>
+
         </select>
       </div>
 
@@ -2184,9 +2191,62 @@ Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)`
       <div class="submit-container">
         <button type="submit" class="submit-btn">Submit</button>
       </div>
-
     </form>
   </div>
+
+  <!-- Move the script BELOW the form -->
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent actual form submission
+
+        const serviceID = "service_7l60tfl";
+        const templateID = "template_txrp58m";
+
+
+        // Ensure all elements exist before accessing them
+        let name = document.getElementById("name")?.value;
+        let email = document.getElementById("email")?.value;
+        let phone = document.getElementById("phone")?.value;
+        let project = document.getElementById("project")?.value;
+        let message = document.getElementById("message")?.value;
+
+        let formattedMessage = `
+        Name: ${name} 
+        Email: ${email} 
+        Phone Number: ${phone} 
+        Project Interested: ${project} 
+        Message: ${message}
+    `;
+
+        emailjs.send(serviceID, templateID, {
+          name: name,  // Matches {{name}} in EmailJS template
+          message: formattedMessage // Matches {{message}}
+        }).then(() => {
+
+          // Show alert
+          document.getElementById("alertMessage").innerHTML = "Form has been Submitted Successfully! We will get back to you soon";
+          document.getElementById("alertMessage").style.display = "block";
+
+        }).catch((err) => {
+          console.log("Something went wrong: " + err);
+          // Show alert
+          document.getElementById("alertMessage").innerHTML = "Couldn't submit the form. Please try again later";
+          document.getElementById("alertMessage").style.display = "block";
+        });
+
+        // Optionally, hide the alert after 5 seconds
+        setTimeout(() => {
+          document.getElementById("alertMessage").style.display = "none";
+        }, 5000);
+        this.reset();
+      });
+    });
+  </script>
+
 
   <!-- bots-->
 
@@ -2372,28 +2432,6 @@ Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)`
   // // ---------------------------------------
 
 
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Collect form data
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      project: document.getElementById('project').value,
-      message: document.getElementById('message').value
-
-    };
-
-    // Here you would typically send the data to your server
-    console.log('Form submitted:', formData);
-
-    // Optional: Show success message
-    alert('Thank you for your enquiry. We will get back to you soon!');
-
-    // Optional: Reset form
-    this.reset();
-  });
 
   /*Enter to send*/
   document.getElementById("user-input").addEventListener("keydown", function (event) {
@@ -2451,41 +2489,6 @@ Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)`
       navbarLinks.style.display = "none";
     }
   });
-
-
-  /*mail noder*/
-
-  document.querySelector("form").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const name = document.querySelector("input[placeholder='Enter your name']").value;
-    const phone = document.querySelector("input[placeholder='Enter your phone number']").value;
-    const email = document.querySelector("input[placeholder='Enter your email']").value;
-    const project = document.querySelector(".selection").value;
-    const message = document.querySelector("input[placeholder='Write Your Message Here...']").value;
-
-    Email.send({
-      SecureToken: "your-smtp-token",  // 🔥 Replace with SMTP Token
-      To: "your-email@example.com",    // Where you want to receive the emails
-      From: "your-email@example.com",  // Sender email (same as SMTP)
-      Subject: "New Callback Request",
-      Body: `
-        <h3>New Callback Request</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Project:</strong> ${project}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `,
-    }).then(response => {
-      alert("Message Sent Successfully!");
-      document.querySelector("form").reset();
-    }).catch(error => {
-      alert("Failed to Send Message. Please Try Again.");
-      console.error(error);
-    });
-  });
-
 
 
 </script>
