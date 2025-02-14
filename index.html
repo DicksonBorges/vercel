@@ -55,6 +55,32 @@
       emailjs.init("SgAkNrNYEAis-NJvv");
     })();
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function updateImages() {
+        let screenWidth = window.innerWidth;
+
+        let images = [
+          { id: "galaxyImg", desktop: "galaxy.jpg", mobile: "assets/images/GalaxyMain.png" },
+          { id: "orchidImg", desktop: "orchid.jpg", mobile: "assets/images/OrchidMain.png" },
+          { id: "hillsideImg", desktop: "hillside.jpg", mobile: "assets/images/HillsideMain.png" }
+        ];
+
+        images.forEach(img => {
+          let imgElement = document.getElementById(img.id);
+          if (imgElement) {
+            imgElement.src = screenWidth < 700 ? img.mobile : img.desktop;
+          }
+        });
+      }
+
+      // Run on load and on resize
+      updateImages();
+      window.addEventListener("resize", updateImages);
+    });
+
+  </script>
+
 
 
 
@@ -1923,7 +1949,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
   <div class="home">
     <div class="scroll-container">
       <div class="scroll-item">
-        <img src="galaxy.jpg" alt="Fortune Galaxy Building" class="buildingImg">
+        <img src="galaxy.jpg" alt="Fortune Galaxy Building" class="buildingImg" id="galaxyImg">
         <div class="content">
           <h1 class="buildingDescription">Fortune Galaxy</h1>
           <p class="description">
@@ -1933,7 +1959,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
         </div>
       </div>
       <div class="scroll-item">
-        <img src="orchid.jpg" alt="Fortune Orchid Building" class="buildingImg">
+        <img src="orchid.jpg" alt="Fortune Orchid Building" class="buildingImg" id="orchidImg">
         <div class="content">
           <h1 class="buildingDescription">Fortune Orchid</h1>
           <p class="description">
@@ -1943,7 +1969,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
         </div>
       </div>
       <div class="scroll-item">
-        <img src="hillside.jpg" alt="Fortune Hillside Building" class="buildingImg">
+        <img src="hillside.jpg" alt="Fortune Hillside Building" class="buildingImg" id="hillsideImg">
         <div class="content">
           <h1 class="buildingDescription">Fortune Hillside</h1>
           <p class="description">
