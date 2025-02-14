@@ -17,28 +17,27 @@
     type = "module";
 
     document.addEventListener("DOMContentLoaded", function () {
-      const images = document.querySelectorAll(".building-image");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.2 } // Trigger when 20% of the image is visible
-      );
-
-      images.forEach((image) => {
-        observer.observe(image);
+        const images = document.querySelectorAll(".building-image");
+      
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.2 } // Trigger when 20% of the image is visible
+        );
+      
+        images.forEach((image) => {
+          observer.observe(image);
+        });
       });
-    });
   </script>
   <style>
     body {
       font-family: "Libre Franklin", sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
     }
@@ -66,18 +65,17 @@
     }
 
     .building-image {
-      width: 100%;
-      display: block;
-      height: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        width: 100%;
+        display: block;
+        height: auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
     }
-
     .building-image.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        opacity: 1;
+        transform: translateY(0);
+      }
 
     .section {
       margin: 40px 120px;
@@ -108,11 +106,9 @@
 
       overflow: hidden;
     }
-
-    .card:hover {
-      transform: scale(1.05);
-      /* Slightly enlarges the card */
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    .card:hover{
+        transform: scale(1.05); /* Slightly enlarges the card */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     .card img {
@@ -222,17 +218,14 @@
       position: relative;
       font-family: 'Libre Franklin';
     }
-
     .arrowprojects {
-      transition: transform 0.3s ease-in-out;
-      display: inline-block;
-      /* Ensures transform works */
-    }
-
-    .navbar-link:hover .arrowprojects {
-      transform: rotate(90deg);
-      /* Rotates '>' to 'v' */
-    }
+        transition: transform 0.3s ease-in-out;
+        display: inline-block; /* Ensures transform works */
+      }
+      
+      .navbar-link:hover .arrowprojects {
+        transform: rotate(90deg); /* Rotates '>' to 'v' */
+      }
 
 
     .navbar-links p {
@@ -319,11 +312,125 @@
     }
 
     .dropdown-item:hover::after {
-      color: white;
+        color: white;
       content: " v";
       transform: rotate(360deg);
       opacity: 1;
     }
+    /*  --------=========Chatbot===---=-=-=-=-=-=-=-=    */
+    .chatbot-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2BA6DC;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: white;
+      border-radius: 12px;
+      border-bottom-left-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      background: #2BA6DC;
+      color: rgb(0, 0, 0);
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .video-style {
+      width: 100%;
+      /* Increase width */
+      max-width: 1400px;
+      /* Limit maximum width */
+      display: block;
+      margin: auto;
+      /* Center the video */
+      /* Optional: Rounded corners */
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 12px;
+      cursor: pointer;
+
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      color: black;
+    }
+
+    .bot {
+      background-color: rgb(168, 227, 251);
+      color: black;
+      padding-left: 5px;
+
+      border-radius: 8px;
+    }
+
+    .user {
+      background-color: white;
+      color: black;
+      text-align: right;
+      padding: 10px;
+    }
+
+    .loading {
+      padding-left: 5px;
+      border-radius: 8px;
+
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+      border-bottom-left-radius: 12px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-bottom-left-radius: 12px;
+    }
+
+    .chat-input button {
+      padding: 10px;
+      background: #ffffff;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      border: none;
+    }
+
 
     /*-----------------------------------------------------------Header ends---------------------------------------------------------------*/
 
@@ -357,17 +464,14 @@
     .blogo {
       align-items: left;
       text-align: left;
-
+      
       height: 80px;
     }
-
     .blogo img {
-      width: 80px;
-      /* Adjust width as needed */
-      height: auto;
-      /* Maintain aspect ratio */
+      width: 80px; /* Adjust width as needed */
+      height: auto; /* Maintain aspect ratio */
     }
-
+    
 
     #footer_heading {
       text-align: left;
@@ -446,13 +550,10 @@
       text-decoration: none;
       justify-content: space-between;
     }
-
     .social-icons a:hover {
-      filter: drop-shadow(0 0 1px #2dbcf5);
-      /* Glow effect */
-      transform: scale(1.1);
-      /* Slightly enlarge the icon */
-    }
+        filter: drop-shadow(0 0 1px #2dbcf5); /* Glow effect */
+        transform: scale(1.1); /* Slightly enlarge the icon */
+      }
 
     .email {
       color: white;
@@ -853,6 +954,17 @@
       border-top-right-radius: 12px;
     }
 
+    .video-style {
+      width: 100%;
+      /* Increase width */
+      max-width: 1400px;
+      /* Limit maximum width */
+      display: block;
+      margin: auto;
+      /* Center the video */
+      /* Optional: Rounded corners */
+    }
+
     .close-btn {
       background: none;
       border: none;
@@ -929,7 +1041,7 @@
   <!-- Header Section -->
   <nav class="navbar">
     <div class="logo">
-      <a href="#"><img src="/assets/icons/fortunelogo.svg" alt="Company Logo"> </a>
+<a href="#"><img src="/assets/icons/fortunelogo.svg" alt="Company Logo"> </a>
     </div>
     <div class="menu-toggle" id="menu-toggle"> &#9776; </div>
     <div class="navbar-links" id="navbar-links">
@@ -937,7 +1049,7 @@
       <a href="/pages/aboutUs.html" class="navbar-link">About Us</a>
       <a href="#" class="navbar-link">Careers</a>
       <div class="dropdown">
-        <a class="navbar-link" href="/pages/projects.html">Projects <span class="arrowprojects">></span></a>
+        <a class="navbar-link" href="/pages/projects.html" >Projects <span class="arrowprojects">></span></a>
         <div class="dropdown-content">
           <a href="/pages/completedproject.html" id="ongoing">Completed Projects</a>
           <a href="#" class="dropdown-item" id="ongoing">Ongoing Projects &nbsp;&nbsp;</a>
@@ -1029,6 +1141,8 @@
               <li><a href="/pages/projects.html">Projects</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="/pages/contactus.html">Contact Us</a></li>
+              <li><a href="/pages/privacypolicy.html">Privacy Policy</a></li>
+              <li><a href="/pages/t&c.html">Terms and conditions</a></li>
             </ul>
           </div>
         </div>
@@ -1039,7 +1153,7 @@
               &nbsp;&nbsp;FORTUNE
               PROMOTERS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fortune
               Highway-II<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main Road,
-              Moodbidri<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-574227</a>
+              Moodbidri - 574227</a>
           </p>
           <p><i class="fa-solid fa-phone" style="color: #2BA6DC;"><a class="tel"
                 href="tel:+918258289555"></i>&nbsp;&nbsp; +91 8258289555</a><br>
@@ -1090,22 +1204,22 @@
 
       /* projects dropdown */
       if (window.innerWidth > 700) {
-        document.querySelector('.lap').style.display = 'block';
-        document.querySelector('.mob').style.display = 'none';
-        document.querySelector('.lap').style.color = 'black';
-        document.querySelector('.mob').style.color = 'black';
-      }
-      else {
-        document.querySelector('.lap').style.display = 'none';
-        document.querySelector('.mob').style.display = 'block';
-        document.querySelector('.lap').style.color = 'black';
-        document.querySelector('.mob').style.color = 'black';
-      }
-      /* -=-=-=-=-=-=-=-=-=projects dropdown-=-=-=-=-=-=-=- */
-
+      document.querySelector('.lap').style.display = 'block';
+      document.querySelector('.mob').style.display = 'none';
+      document.querySelector('.lap').style.color = 'black';
+      document.querySelector('.mob').style.color = 'black';
+    }
+    else {
+      document.querySelector('.lap').style.display = 'none';
+      document.querySelector('.mob').style.display = 'block';
+      document.querySelector('.lap').style.color = 'black';
+      document.querySelector('.mob').style.color = 'black';
+    }
+    /* -=-=-=-=-=-=-=-=-=projects dropdown-=-=-=-=-=-=-=- */
+    
     });
 
-
+    
     /*Chat Bot*/
     let isChatOpened = false;
     const apiKey = "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"; // Replace with your actual API key
@@ -1133,7 +1247,7 @@
       loadingAnime();
 
 
-
+      
       function loadingAnime() {
         const chatMessages = document.getElementById("chat-messages");
         const loading = document.createElement("div");
@@ -1147,9 +1261,9 @@
         chatMessages.append(loading);
 
         setTimeout(() => {
-
+          
           loading.remove();
-
+          
         }, 800);
 
       }
@@ -1164,8 +1278,7 @@
           body: JSON.stringify({
             model: "llama3-70b-8192", // Ensure this model exists
             messages: [
-              {
-                role: "system", content: `You are a professional and courteous AI assistant representing Fortune Promoters, a real estate company located at Fortune Highway-II, Main Road, Moodbidri - 574227. Your role is to assist customers efficiently with concise, accurate, and engaging responses.
+              { role: "system", content: `You are a professional and courteous AI assistant representing Fortune Promoters, a real estate company located at Fortune Highway-II, Main Road, Moodbidri - 574227. Your role is to assist customers efficiently with concise, accurate, and engaging responses.
 
 Guidelines for Interaction:
 Keep responses brief, clear, and professional—no unnecessary explanations.
@@ -1180,9 +1293,9 @@ Do not exeed 20 words per response.
 Project Details:
 Ongoing Projects:
 
-Fortune Orchid - Gated community with modern amenities, prime location, and high appreciation potential.
-Fortune Hillside - Premium hilltop property with jogging tracks, security, and green spaces.
-Fortune Galaxy - Premium  property with jogging tracks, security, and green spaces, club house.
+Fortune Orchid - Gated community with modern amenities, prime location, and high appreciation potential. - pages/Orchid.html 
+Fortune Hillside - Premium hilltop property with jogging tracks, security, and green spaces. - pages/Hillside.html
+Fortune Galaxy - Premium  property with jogging tracks, security, and green spaces, club house. - pages/Galaxy.html
 Completed Projects:
 
 Fortune Highway (Jainpete Moodbidri)
@@ -1190,24 +1303,14 @@ Fortune Highway-2 (Jainpete Moodbidri)
 Fortune Center (Bajagoli)
 Fortune Lotus (Jodurasthe Karkala)
 Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)
-
-Managing Directors: Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala Puthige, Mr. Mahendra Varma Jain.
-
-Partners: HDFC Bank, Canara Bank, Union Bank, Axis Bank.
-
-
-Please dont reply to the questions which you are not aware of, reply with a formal tone.
-Don't answer the questions which are not related to the company.
-
-`
- },
+Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala Puthige, and Mr. Mahendra Varma Jain.` },
               { role: "user", content: message }
             ],
             max_tokens: 100
           })
         });
 
-
+        
 
         const data = await response.json();
 
@@ -1219,7 +1322,7 @@ Don't answer the questions which are not related to the company.
         const reply = data.choices[0].message.content || "I couldn't understand that.";
         appendMessage("Fortune: " + reply, "bot");
 
-
+        
       } catch (error) {
         console.error("Fetch Error:", error);
         appendMessage("Fortune: Error fetching response. Please check your API key and network connection.", "bot");

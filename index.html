@@ -560,7 +560,6 @@
 
       .content {
         padding: 0 110px;
-
       }
 
 
@@ -817,7 +816,6 @@
 
       .container1 {
         width: 100%;
-
         margin: 0 auto;
         padding: 60px;
       }
@@ -1364,26 +1362,26 @@
     }
 
 
+    /*----------------------------------------FOOTER------------------------------------------*/
     .footer {
       background-color: #666666;
       color: #fff;
-      /* padding: 30px 120px 0 120px ; */
+      padding-top: 2rem 0;
       font-size: 16px;
     }
 
-    /*
-  .footer .columns {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 2rem 0;
-  }
-*/
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: none;
+    }
+
     .footer .columns {
       display: grid;
       grid-template-columns: auto auto auto;
       column-gap: 140px;
-      padding: 30px 120px 0 120px;
+      padding: 40px 0 0px 0;
       max-width: auto;
       margin: 0 auto;
     }
@@ -1406,7 +1404,7 @@
     .footer .columns div {
       flex: 1;
       margin: 0 10px;
-      min-width: 100px;
+      min-width: 200px;
     }
 
     .footer .explore h4 {
@@ -1473,7 +1471,8 @@
     }
 
 
-    .email {
+    .email,
+    .tel {
       color: white;
       text-decoration: none;
     }
@@ -1551,19 +1550,15 @@
         padding: 10px 20px;
       }
 
-      /*---------------------------------------------------------------------------------------*/
+      /*--------------------------------------Footer-------------------------------------------------*/
       .footer .columns {
         grid-template-columns: 1fr;
-        /* Stack columns vertically */
         gap: 20px;
-        /* Reduce gap between columns */
-        padding: 0px 20px;
-        /* Adjust padding */
+        padding: 20px 0;
       }
 
       .footer .columns div {
         text-align: center;
-        /* Center align text */
       }
 
       .footer .container .columns .foot {
@@ -1581,7 +1576,7 @@
 
       .footer .get_in_touch p {
         text-align: justify;
-        padding-left: 65px;
+        margin-left: 15%;
       }
 
       #footer_heading {
@@ -1612,7 +1607,13 @@
         font-size: 9px;
       }
 
+      .footer .get_in_touch h4 {
+        padding-left: 0px;
+        margin-left: 0px;
+      }
+
       /*---------------------------------------------------------------------------------------*/
+
     }
 
     @media (min-width:700px) and (max-width: 1200px) {
@@ -1680,12 +1681,12 @@
         font-size: 24px;
       }
 
-      /*-------------------------------------------------------------------------------------------------------------------*/
+      /*-----------------------------------Footer------------------------------------*/
       .footer .columns {
         display: grid;
         grid-template-columns: auto auto auto;
         column-gap: 0px;
-        padding: 50px 30px 0 30px;
+        padding: 50px 0 0 0;
         max-width: 98%;
         margin: 0;
       }
@@ -1703,11 +1704,12 @@
         color: #2dbcf5
       }
 
-
+      .footer .get_in_touch h4 {
+        padding-left: 40px;
+      }
 
       .footer .get_in_touch p {
         text-align: justify;
-        padding-left: 65px;
       }
 
       .social-icons {
@@ -1722,11 +1724,6 @@
         padding-top: 0%;
         padding-bottom: 10px;
       }
-
-
-
-
-      /*-------------------------------------------------------------------------------------------------------------------*/
     }
   </style>
 </head>
@@ -1845,9 +1842,9 @@ Do not exeed 20 words per response.
 Project Details:
 Ongoing Projects:
 
-Fortune Orchid - Gated community with modern amenities, prime location, and high appreciation potential.
-Fortune Hillside - Premium hilltop property with jogging tracks, security, and green spaces.
-Fortune Galaxy - Premium  property with jogging tracks, security, and green spaces, club house.
+Fortune Orchid - Gated community with modern amenities, prime location, and high appreciation potential. - pages/Orchid.html 
+Fortune Hillside - Premium hilltop property with jogging tracks, security, and green spaces. - pages/Hillside.html
+Fortune Galaxy - Premium  property with jogging tracks, security, and green spaces, club house. - pages/Galaxy.html
 Completed Projects:
 
 Fortune Highway (Jainpete Moodbidri)
@@ -1855,16 +1852,7 @@ Fortune Highway-2 (Jainpete Moodbidri)
 Fortune Center (Bajagoli)
 Fortune Lotus (Jodurasthe Karkala)
 Fortune Neethi Heights (Opp. Government Hospital, Moodbidri)
-
-Managing Directors: Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala Puthige, Mr. Mahendra Varma Jain.
-
-Partners: HDFC Bank, Canara Bank, Union Bank, Axis Bank.
-
-
-Please dont reply to the questions which you are not aware of, reply with a formal tone.
-Don't answer the questions which are not related to the company.
-
-`
+Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala Puthige, and Mr. Mahendra Varma Jain.`
             },
             { role: "user", content: message }
           ],
@@ -1935,7 +1923,7 @@ Don't answer the questions which are not related to the company.
   <div class="home">
     <div class="scroll-container">
       <div class="scroll-item">
-        <img src="../assets/images/GalaxyMain.png" alt="Fortune Galaxy Building" class="buildingImg">
+        <img src="galaxy.jpg" alt="Fortune Galaxy Building" class="buildingImg">
         <div class="content">
           <h1 class="buildingDescription">Fortune Galaxy</h1>
           <p class="description">
@@ -1945,7 +1933,7 @@ Don't answer the questions which are not related to the company.
         </div>
       </div>
       <div class="scroll-item">
-        <img src="../assets/images/OrchidMain.png" alt="Project 2" class="buildingImg">
+        <img src="orchid.jpg" alt="Fortune Orchid Building" class="buildingImg">
         <div class="content">
           <h1 class="buildingDescription">Fortune Orchid</h1>
           <p class="description">
@@ -1955,7 +1943,7 @@ Don't answer the questions which are not related to the company.
         </div>
       </div>
       <div class="scroll-item">
-        <img src="../assets/images/HillSideMain.png" alt="Project 3" class="buildingImg">
+        <img src="hillside.jpg" alt="Fortune Hillside Building" class="buildingImg">
         <div class="content">
           <h1 class="buildingDescription">Fortune Hillside</h1>
           <p class="description">
@@ -2285,7 +2273,7 @@ Don't answer the questions which are not related to the company.
     <div class="container">
       <div class="columns">
         <div>
-          <img src="./assets/icons/fortunelogo.svg" alt="Logo" style="width: 80px;">
+          <img src="../assets/icons/fortunelogo.svg" alt="Logo" style="width: 80px;">
           <p class="foot">Fortune Promoters is a leading real estate builder and developer in Moodbidri. Their
             portfolio
             includes residential spaces, commercial properties, and plots, offering exceptional quality and
@@ -2304,45 +2292,46 @@ Don't answer the questions which are not related to the company.
         </div>
         <div>
           <div class="explore">
-            <h4 id="footer_heading">Explore</h4>
+            <h4>Explore</h4>
             <ul>
               <li><a href="#">Home</a></li>
-              <li><a href="./pages/aboutUs.html">About Us</a></li>
-              <li><a href="./pages/projects.html">Projects</a></li>
+              <li><a href="/pages/aboutUs.html">About Us</a></li>
+              <li><a href="/pages/projects.html">Projects</a></li>
               <li><a href="#">Careers</a></li>
-              <li><a href="./pages/contactus.html">Contact Us</a></li>
+              <li><a href="/pages/contactus.html">Contact Us</a></li>
+              <li><a href="/pages/privacypolicy.html">Privacy Policy</a></li>
+              <li><a href="/pages/t&c.html">Terms and conditions</a></li>
             </ul>
           </div>
         </div>
-        <div class="get_in_touch">
-          <h4 id="footer_heading">Get in Touch</h4>
-          <p><i class="fa-solid fa-location-dot" style="color: #2BA6DC;"></i>
-            <a href="https://maps.app.goo.gl/XZfxsvv3sSvp9u8t9" style="color: white; text-decoration:none">
-              &nbsp;&nbsp;FORTUNE
-              PROMOTERS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fortune
-              Highway-II<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main Road,
-              Moodbidri<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-574227</a>
-          </p>
-          <p><i class="fa-solid fa-phone" style="color: #2BA6DC;"><a class="tel"
-                href="tel:+918258289555"></i>&nbsp;&nbsp; +91 8258289555</a><br>
-            <i class="fa-solid fa-phone" style="color: #2BA6DC;"><a class="tel"
-                href="tel:+917259512111">&nbsp;&nbsp;</i>&nbsp;+91 7259514111</a>
-          </p>
-          <p><i class="fa-solid fa-envelope" style="color: #2BA6DC;"></i>&nbsp;&nbsp; <a class="email"
-              href="mailto:sales@fortunepromoters.com">sales@fortunepromoters.com</a><br>
-            <i class="fa-solid fa-envelope" style="color: #2BA6DC;"></i>&nbsp;&nbsp;<a class="email"
-              href="mailto:bedrafortune@gmail.com">&nbsp;bedrafortune@gmail.com</a>
-          </p>
+        <div>
+          <div class="get_in_touch">
+            <h4>Get in Touch</h4>
+            <p><i class="fa-solid fa-location-dot" style="color: #2BA6DC;"></i>
+              <a href="https://maps.app.goo.gl/XZfxsvv3sSvp9u8t9" style="color: white; text-decoration:none">
+                &nbsp;&nbsp;FORTUNE PROMOTERS<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fortune Highway-II<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main Road, Moodbidri-574227</a>
+            </p>
+            <p><i class="fa-solid fa-phone" style="color: #2BA6DC;"><a class="tel"
+                  href="tel:+918258289555"></i>&nbsp;&nbsp; +91 8258289555</a><br>
+              <i class="fa-solid fa-phone" style="color: #2BA6DC;"><a class="tel"
+                  href="tel:+917259512111">&nbsp;&nbsp;</i>&nbsp;+91 7259514111</a>
+            </p>
+            <p><i class="fa-solid fa-envelope" style="color: #2BA6DC;"></i>&nbsp;&nbsp; <a class="email"
+                href="mailto:sales@fortunepromoters.com">sales@fortunepromoters.com</a><br>
+              <i class="fa-solid fa-envelope" style="color: #2BA6DC;"></i>&nbsp;&nbsp;<a class="email"
+                href="mailto:bedrafortune@gmail.com">&nbsp;bedrafortune@gmail.com</a>
+            </p>
+          </div>
         </div>
       </div>
 
     </div>
-    <div class="bottom-bar"> Copyright @2024 &ndash; Fortune Promoters &ndash; All rights reserved | Designed by
+    <div class="bottom-bar"> Copyright @2025 &ndash; Fortune Promoters &ndash; All rights reserved | Designed by
       Vision
       Flow Technologies</div>
   </footer>
-
-
 </body>
 
 </html>
@@ -2404,7 +2393,7 @@ Don't answer the questions which are not related to the company.
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 1000,
       dots: false,
       arrows: true,
       infinite: true,
@@ -2419,7 +2408,7 @@ Don't answer the questions which are not related to the company.
       dots: true,  /* Adds navigation dots */
       arrows: false,  /* No arrows to keep it clean */
       infinite: true,
-      adaptiveHeight: true
+      adaptiveHeight: false
     });
   });
   $(document).ready(function () {
@@ -2427,11 +2416,11 @@ Don't answer the questions which are not related to the company.
       slidesToShow: 1,  /* Show one testimonial at a time */
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 6000,
       dots: true,  /* Adds navigation dots */
       arrows: false,  /* No arrows to keep it clean */
       infinite: true,
-      adaptiveHeight: true
+      adaptiveHeight: false
     });
     $('.slick-dots li').on('click', function () {
       var index = $(this).index(); // Get the index of the clicked dot
