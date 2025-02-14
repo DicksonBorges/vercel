@@ -82,6 +82,17 @@ header {
   /* Smooth transition */
 }
 
+.navbar.shrink:hover {
+  height: 94px;
+}
+
+.navbar.shrink:hover .logo img {
+  height: 94px;
+  width: auto;
+  transition: all 0.2s linear;
+
+}
+
 
 .logo {
   display: flex;

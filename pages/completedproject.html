@@ -17,23 +17,23 @@
     type = "module";
 
     document.addEventListener("DOMContentLoaded", function () {
-        const images = document.querySelectorAll(".building-image");
-      
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          { threshold: 0.2 } // Trigger when 20% of the image is visible
-        );
-      
-        images.forEach((image) => {
-          observer.observe(image);
-        });
+      const images = document.querySelectorAll(".building-image");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 } // Trigger when 20% of the image is visible
+      );
+
+      images.forEach((image) => {
+        observer.observe(image);
       });
+    });
   </script>
   <style>
     body {
@@ -65,17 +65,18 @@
     }
 
     .building-image {
-        width: 100%;
-        display: block;
-        height: auto;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+      width: 100%;
+      display: block;
+      height: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
     }
+
     .building-image.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .section {
       margin: 40px 120px;
@@ -106,9 +107,11 @@
 
       overflow: hidden;
     }
-    .card:hover{
-        transform: scale(1.05); /* Slightly enlarges the card */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+    .card:hover {
+      transform: scale(1.05);
+      /* Slightly enlarges the card */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     .card img {
@@ -188,6 +191,16 @@
       /* Smooth transition */
     }
 
+    .navbar.shrink:hover {
+      height: 94px;
+    }
+
+    .navbar.shrink:hover .logo img {
+      height: 94px;
+      width: auto;
+      transition: all 0.2s linear;
+
+    }
 
     .logo {
       display: flex;
@@ -218,14 +231,17 @@
       position: relative;
       font-family: 'Libre Franklin';
     }
+
     .arrowprojects {
-        transition: transform 0.3s ease-in-out;
-        display: inline-block; /* Ensures transform works */
-      }
-      
-      .navbar-link:hover .arrowprojects {
-        transform: rotate(90deg); /* Rotates '>' to 'v' */
-      }
+      transition: transform 0.3s ease-in-out;
+      display: inline-block;
+      /* Ensures transform works */
+    }
+
+    .navbar-link:hover .arrowprojects {
+      transform: rotate(90deg);
+      /* Rotates '>' to 'v' */
+    }
 
 
     .navbar-links p {
@@ -312,11 +328,12 @@
     }
 
     .dropdown-item:hover::after {
-        color: white;
+      color: white;
       content: " v";
       transform: rotate(360deg);
       opacity: 1;
     }
+
     /*  --------=========Chatbot===---=-=-=-=-=-=-=-=    */
     .chatbot-icon {
       position: fixed;
@@ -464,14 +481,17 @@
     .blogo {
       align-items: left;
       text-align: left;
-      
+
       height: 80px;
     }
+
     .blogo img {
-      width: 80px; /* Adjust width as needed */
-      height: auto; /* Maintain aspect ratio */
+      width: 80px;
+      /* Adjust width as needed */
+      height: auto;
+      /* Maintain aspect ratio */
     }
-    
+
 
     #footer_heading {
       text-align: left;
@@ -550,10 +570,13 @@
       text-decoration: none;
       justify-content: space-between;
     }
+
     .social-icons a:hover {
-        filter: drop-shadow(0 0 1px #2dbcf5); /* Glow effect */
-        transform: scale(1.1); /* Slightly enlarge the icon */
-      }
+      filter: drop-shadow(0 0 1px #2dbcf5);
+      /* Glow effect */
+      transform: scale(1.1);
+      /* Slightly enlarge the icon */
+    }
 
     .email {
       color: white;
@@ -1041,7 +1064,7 @@
   <!-- Header Section -->
   <nav class="navbar">
     <div class="logo">
-<a href="#"><img src="/assets/icons/fortunelogo.svg" alt="Company Logo"> </a>
+      <a href="#"><img src="/assets/icons/fortunelogo.svg" alt="Company Logo"> </a>
     </div>
     <div class="menu-toggle" id="menu-toggle"> &#9776; </div>
     <div class="navbar-links" id="navbar-links">
@@ -1049,7 +1072,7 @@
       <a href="/pages/aboutUs.html" class="navbar-link">About Us</a>
       <a href="#" class="navbar-link">Careers</a>
       <div class="dropdown">
-        <a class="navbar-link" href="/pages/projects.html" >Projects <span class="arrowprojects">></span></a>
+        <a class="navbar-link" href="/pages/projects.html">Projects <span class="arrowprojects">></span></a>
         <div class="dropdown-content">
           <a href="/pages/completedproject.html" id="ongoing">Completed Projects</a>
           <a href="#" class="dropdown-item" id="ongoing">Ongoing Projects &nbsp;&nbsp;</a>
@@ -1204,22 +1227,22 @@
 
       /* projects dropdown */
       if (window.innerWidth > 700) {
-      document.querySelector('.lap').style.display = 'block';
-      document.querySelector('.mob').style.display = 'none';
-      document.querySelector('.lap').style.color = 'black';
-      document.querySelector('.mob').style.color = 'black';
-    }
-    else {
-      document.querySelector('.lap').style.display = 'none';
-      document.querySelector('.mob').style.display = 'block';
-      document.querySelector('.lap').style.color = 'black';
-      document.querySelector('.mob').style.color = 'black';
-    }
-    /* -=-=-=-=-=-=-=-=-=projects dropdown-=-=-=-=-=-=-=- */
-    
+        document.querySelector('.lap').style.display = 'block';
+        document.querySelector('.mob').style.display = 'none';
+        document.querySelector('.lap').style.color = 'black';
+        document.querySelector('.mob').style.color = 'black';
+      }
+      else {
+        document.querySelector('.lap').style.display = 'none';
+        document.querySelector('.mob').style.display = 'block';
+        document.querySelector('.lap').style.color = 'black';
+        document.querySelector('.mob').style.color = 'black';
+      }
+      /* -=-=-=-=-=-=-=-=-=projects dropdown-=-=-=-=-=-=-=- */
+
     });
 
-    
+
     /*Chat Bot*/
     let isChatOpened = false;
     const apiKey = "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"; // Replace with your actual API key
@@ -1247,7 +1270,7 @@
       loadingAnime();
 
 
-      
+
       function loadingAnime() {
         const chatMessages = document.getElementById("chat-messages");
         const loading = document.createElement("div");
@@ -1261,9 +1284,9 @@
         chatMessages.append(loading);
 
         setTimeout(() => {
-          
+
           loading.remove();
-          
+
         }, 800);
 
       }
@@ -1278,7 +1301,8 @@
           body: JSON.stringify({
             model: "llama3-70b-8192", // Ensure this model exists
             messages: [
-              { role: "system", content: `You are a professional and courteous AI assistant representing Fortune Promoters, a real estate company located at Fortune Highway-II, Main Road, Moodbidri - 574227. Your role is to assist customers efficiently with concise, accurate, and engaging responses.
+              {
+                role: "system", content: `You are a professional and courteous AI assistant representing Fortune Promoters, a real estate company located at Fortune Highway-II, Main Road, Moodbidri - 574227. Your role is to assist customers efficiently with concise, accurate, and engaging responses.
 
 Guidelines for Interaction:
 Keep responses brief, clear, and professional—no unnecessary explanations.
@@ -1310,7 +1334,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
           })
         });
 
-        
+
 
         const data = await response.json();
 
@@ -1322,7 +1346,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
         const reply = data.choices[0].message.content || "I couldn't understand that.";
         appendMessage("Fortune: " + reply, "bot");
 
-        
+
       } catch (error) {
         console.error("Fetch Error:", error);
         appendMessage("Fortune: Error fetching response. Please check your API key and network connection.", "bot");
