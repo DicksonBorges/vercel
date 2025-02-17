@@ -86,63 +86,236 @@
       font-size: 52px;
       margin-bottom: 20px;
       color: #333;
+      text-align: center;
     }
 
     .blue-heading {
       color: #2BA6DC;
       font-size: 20px;
       padding-bottom: 18px;
-    }
-
-    .cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .card {
-      width: 45%;
-      position: relative;
-
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      /* Slightly enlarges the card */
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .card-text {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 10px 0;
       text-align: center;
     }
 
-    .card h3 {
-      margin: 5px 0;
-      font-size: 32px;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 7.5rem;
+      margin-bottom: 200px;
     }
 
-    .card p {
-      margin: 5px 0;
-      font-size: 24px;
+    /* Card Wrapper */
+    .project-card {
+      width: 100%;
+      height: 250px;
+      perspective: 1000px;
+
+      /* Enables the 3D effect */
     }
 
-    .card p {
-      font-size: 16px;
-      color: #ddd;
+    /* Inner flipping container */
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    /* Flip on hover */
+    .project-card:hover .card-inner {
+      transform: rotateY(180deg);
+      height: 300px;
+      width: 400px;
+
+    }
+
+    /* Front & Back Styles */
+    .card-front,
+    .card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border: 1px solid #e5e5e5;
+      overflow: hidden;
+    }
+
+    /* Front Side */
+    .card-front {
+      background: #fff;
+    }
+
+    /* Back Side */
+    .card-back {
+      background-image: url(../assets/images/FortuneLotus.png);
+      background-size: cover;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+    }
+
+    .location {
+      background-color: #2BA6DC;
+      color: white;
+      border: none;
+      height: 50px;
+      width: 100px;
+      border-radius: 3px;
+      margin: 5px;
+    }
+
+    .location:hover {
+      background-color: #2dbcf5;
+      cursor: pointer;
+    }
+
+    .brochure {
+      background-color: #2BA6DC;
+      color: white;
+      border: none;
+      height: 50px;
+      width: 100px;
+      border-radius: 3px;
+      margin: 5px;
+    }
+
+    .brochure:hover {
+      background-color: #2dbcf5;
+      cursor: pointer;
+    }
+
+
+
+
+    .card-back2 {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border: 1px solid #e5e5e5;
+      overflow: hidden;
+
+      background-image: url(../assets/images/FortuneNeethiHights.png);
+      background-size: cover;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .card-back4 {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border: 1px solid #e5e5e5;
+      overflow: hidden;
+
+
+      background-image: url(../assets/images/FortuneHighway.png);
+      background-size: cover;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .card-back5 {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border: 1px solid #e5e5e5;
+      overflow: hidden;
+
+
+      background-image: url(../assets/images/FortuneHighway2.png);
+      background-size: cover;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .card-back6 {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border: 1px solid #e5e5e5;
+      overflow: hidden;
+
+
+      background-image: url(../assets/images/FortuneCenter.png);
+      background-size: cover;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+
+    /* Image Styling */
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-details {
+      font-size: 10px;
+      color: black;
+    }
+
+    /* Project Info */
+    .project-info {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .project-location {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    /* Arrow Button */
+    .arrow-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #e9e9e9;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .arrow-button:hover {
+      background-color: #cce6ff;
+    }
+
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      fill: #2BA6DC;
     }
 
     /*--------------------------------------------------------Header CSS------------------------------------------*/
@@ -631,6 +804,7 @@
         color: #2BA6DC;
         font-size: 28px;
         padding: 18px 0 18px 0;
+        text-align: center;
       }
 
       .section {
@@ -838,6 +1012,10 @@
 
       .card-text {
         width: 80%;
+      }
+
+      .projects-grid {
+        margin-right: 100px;
       }
 
       /*--------------------------------------Footer-------------------------------------------------*/
@@ -1095,42 +1273,136 @@
   <div class="section">
     <h2 class="blue-heading">OUR COMPLETED PROJECTS</h2>
     <h2 class="black-heading">The Fortune Family</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="/assets/images/FortuneHighway.png" alt="Fortune Highway">
-        <div class="card-text">
-          <h3>Fortune Highway</h3>
-          <p>Jainpete Moodbidri</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <a style="text-decoration: none;">
+              <img src="/assets/images/FortuneHighway.png" alt="Fortune Orchid" class="project-image">
+              <div class="project-info">
+
+                <span class="arrow-button">
+                  <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="card-back4">
+            <button class="location" onclick=openbutton('https://maps.app.goo.gl/1z1sQbPjYuSqyn5M6')>Location</button>
+            <button class="brochure" onclick=openbutton('../assets/h_bro.pdf')>Brochure</button>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Fortune Highway</div>
+          <div class="project-location">Jainpete, Moodbidri</div>
         </div>
       </div>
-      <div class="card">
-        <img src="/assets/images/FortuneHighway2.png" alt="Fortune Highway-2">
-        <div class="card-text">
-          <h3>Fortune Highway-2</h3>
-          <p>Jainpete Moodbidri</p>
+
+      <div class="project-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <a style="text-decoration: none;">
+              <img src="/assets/images/FortuneHighway2.png" alt="Fortune Orchid" class="project-image">
+              <div class="project-info">
+
+                <span class="arrow-button">
+                  <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="card-back5">
+            <button class="location" onclick=openbutton('https://maps.app.goo.gl/2eTwGc4BqUY7GUkh8')>Location</button>
+            <button class="brochure" onclick=openbutton('../assets/h2_bro.pdf')>Brochure</button>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Fortune Highway-2</div>
+          <div class="project-location">Jainpete, Moodbidri</div>
         </div>
       </div>
-      <div class="card">
-        <img src="/assets/images/FortuneCenter.png" alt="Fortune Center">
-        <div class="card-text">
-          <h3>Fortune Center</h3>
-          <p>Bajagoli</p>
+
+      <!-- Fortune Galaxy Card -->
+      <div class="project-card">
+        <div class="card-inner">
+          <!-- Front Side -->
+          <div class="card-front">
+            <!-- <a  style="text-decoration: none;"> -->
+            <img src="/assets/images/FortuneLotus.png" alt="Fortune Galaxy" class="project-image">
+
+            </a>
+          </div>
+          <!-- Back Side -->
+          <div class="card-back">
+            <button class="location" onclick=openbutton('https://maps.app.goo.gl/Se4henow4T4to3RK7')>Location</button>
+            <button class="brochure" onclick=openbutton('../assets/lotus_bro.pdf')>Brochure</button>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Fortune Lotus</div>
+          <div class="project-location">Jodurasthe, Karkala</div>
         </div>
       </div>
-      <div class="card">
-        <img src="/assets/images/FortuneLotus.png" alt="Fortune Lotus">
-        <div class="card-text">
-          <h3>Fortune Lotus</h3>
-          <p>Jodurasthe Karkala</p>
+
+      <!-- Fortune Orchid Card -->
+      <div class="project-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <a style="text-decoration: none;">
+              <img src="/assets/images/FortuneNeethiHights.png" alt="Fortune Orchid" class="project-image">
+              <div class="project-info">
+
+                <span class="arrow-button">
+                  <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+          <!-- Back Side -->
+          <div class="card-back2">
+            <button class="location" onclick=openbutton('https://maps.app.goo.gl/gcp22BdBziby5f2DA')>Location</button>
+            <button class="brochure" onclick=openbutton('../assets/neethi_bro.pdf')>Brochure</button>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Fortune Neethi Hills</div>
+          <div class="project-location">Opposite Government Hospital, Moodbidri</div>
         </div>
       </div>
-      <div class="card">
-        <img src="/assets/images/FortuneNeethiHights.png" alt="Fortune Neethi Heights">
-        <div class="card-text">
-          <h3>Fortune Neethi Heights</h3>
-          <p>Opposite Government Hospital, Moodbidri</p>
+
+      <div class="project-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <a style="text-decoration: none;">
+              <img src="/assets/images/FortuneCenter.png" alt="Fortune Orchid" class="project-image">
+              <div class="project-info">
+
+                <span class="arrow-button">
+                  <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="card-back6">
+            <button class="location" onclick=openbutton('https://maps.app.goo.gl/Ynn6jvu1TybAQ3Pt7')>Location</button>
+            <button class="brochure" onclick=openbutton('../assets/centre_bro.pdf')>Brochure</button>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Fortune Center</div>
+          <div class="project-location">Bajagoli</div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -1411,6 +1683,13 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
         navbarLinks.style.display = "none";
       }
     });
+
+
+
+    function openbutton(ur) {
+      window.open(ur, '_blank');
+
+    }
   </script>
 
 </body>
