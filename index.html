@@ -61,9 +61,9 @@
         let screenWidth = window.innerWidth;
 
         let images = [
-          { id: "galaxyImg", desktop: "galaxy.jpg", mobile: "assets/images/GalaxyMain.png" },
-          { id: "orchidImg", desktop: "orchid.jpg", mobile: "assets/images/OrchidMain.png" },
-          { id: "hillsideImg", desktop: "hillside.jpg", mobile: "assets/images/HillSideMain.png" }
+          { id: "galaxyImg", desktop: "galaxy.jpg", mobile: "resp_galaxy.jpg" },
+          { id: "orchidImg", desktop: "orchid.jpg", mobile: "resp_orchid.jpg" },
+          { id: "hillsideImg", desktop: "hillside.jpg", mobile: "resp_hillside.jpg" }
         ];
 
         images.forEach(img => {
@@ -71,6 +71,7 @@
           if (imgElement) {
             imgElement.src = screenWidth < 700 ? img.mobile : img.desktop;
           }
+
         });
       }
 
@@ -598,6 +599,7 @@
 
       .content {
         padding: 0 110px;
+
       }
 
 
@@ -1719,6 +1721,10 @@
         font-size: 24px;
       }
 
+      .content {
+        height: 50%;
+      }
+
       /*-----------------------------------Footer------------------------------------*/
       .footer .columns {
         display: grid;
@@ -1938,7 +1944,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
     <div class="navbar-links" id="navbar-links">
       <a href="../index.html" class="navbar-link">Home</a>
       <a href="/pages/aboutUs.html" class="navbar-link">About Us</a>
-      <a href="#" class="navbar-link">Careers</a>
+      <a href="pages/careers.html" class="navbar-link">Careers</a>
       <div class="dropdown">
         <a class="navbar-link" href="/pages/projects.html">Projects <span class="arrowprojects">></span></a>
         <div class="dropdown-content">
@@ -2335,7 +2341,7 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
               <li><a href="#">Home</a></li>
               <li><a href="/pages/aboutUs.html">About Us</a></li>
               <li><a href="/pages/projects.html">Projects</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="/pages/careers.html">Careers</a></li>
               <li><a href="/pages/contactus.html">Contact Us</a></li>
               <li><a href="/pages/privacypolicy.html">Privacy Policy</a></li>
               <li><a href="/pages/t&c.html">Terms and conditions</a></li>
@@ -2366,9 +2372,10 @@ Our Managing Directors are Mr. Rony Fernandes, Mr. Dennis Pereira, Mr. Abulala P
       </div>
 
     </div>
-    <div class="bottom-bar"> Copyright @2025 &ndash; Fortune Promoters &ndash; All rights reserved | Designed by
-      Vision
-      Flow Technologies</div>
+    <div class="bottom-bar"> Copyright @2025 &ndash; Fortune Promoters &ndash; All rights reserved | <a
+        href="https://www.visionflowtech.com/" style="text-decoration: none; color: white;">Designed by
+        Vision
+        Flow Technologies</a></div>
   </footer>
 </body>
 
